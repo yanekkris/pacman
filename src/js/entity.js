@@ -14,7 +14,12 @@ class Entity {
   mount(parent) {
     this.element = this.render();
     parent.appendChild(this.element);
+    this.update();
   }
-
+  update = () => {
+    console.log(this.element);
+    this.element.style.left = `${(this.x - 1) * 85}px`;
+    this.element.style.top = `${(this.y - 1) * 85}px`;
+  };
   collisionDetection() {}
 }
