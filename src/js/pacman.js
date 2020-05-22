@@ -17,10 +17,21 @@ class Pacman {
 
   move(event) {
     let keyCode = event.code;
-    if (stage1.collisionDetection(this.xpos % 85, this.ypos % 85) === null) {
-      this.element.style.left = String(tileL) + 'px';
-      this.element.style.top = String(tileT) + 'px';
-
+    console.log(Math.floor(this.xpos / 85), Math.floor(this.ypos / 85));
+    console.log(
+      stage1.collisionDetection(
+        Math.floor(this.xpos / 85) + 1,
+        Math.floor(this.ypos / 85) + 1
+      )
+    );
+    if (
+      stage1.collisionDetection(
+        Math.floor(this.xpos / 85),
+        Math.floor(this.ypos / 85)
+      ) === false
+    ) {
+      console.log('Boom');
+    } else {
       if (keyCode === 'ArrowRight') {
         if (this.xpos < stageWidth - 85) {
           this.xpos += 85;
@@ -49,6 +60,7 @@ class Pacman {
     }
     this.update();
   }
+
   mount(parent) {
     this.element = this.render();
     parent.appendChild(this.element);
@@ -57,6 +69,8 @@ class Pacman {
   update = () => {
     let tileL = this.xpos - (this.xpos % 85);
     let tileT = this.ypos - (this.ypos % 85);
+    this.element.style.left = String(tileL) + 'px';
+    this.element.style.top = String(tileT) + 'px';
     if (this.element.style.backgroundPositionX === '0px') {
       this.element.style.backgroundPositionX = '85px';
     } else {

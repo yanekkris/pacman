@@ -20,13 +20,12 @@ class Stage {
     stageHeight.style.height = `${this.height}px`;
   };
 
-  // collisionDeteciton(x, y) {
-  //   entities.forEach((entity) => {
-  //     if (x === entity.x && y === entity.y) {
-  //       return this.entity;
-  //     } else {
-  //       return null;
-  //     }
-  //   });
-  // }
+  collisionDetection(x, y) {
+    entities.forEach((entity) => {
+      if (x === entity.x && y === entity.y) {
+        return false;
+      }
+      return true;
+    });
+  }
 }
