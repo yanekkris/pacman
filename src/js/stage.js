@@ -19,4 +19,8 @@ class Stage {
     const stageHeight = this.element.querySelector('.stage');
     stageHeight.style.height = `${this.height}px`;
   };
+
+  removeEntity(this.element) {
+
+  }
 }
