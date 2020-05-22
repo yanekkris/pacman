@@ -20,4 +20,9 @@ class Entity {
     this.element.style.left = `${(this.x - 1) * 85}px`;
     this.element.style.top = `${(this.y - 1) * 85}px`;
   };
+<<<<<<< HEAD
+=======
+  collisionDetection() {}
+  unmount() {}
+>>>>>>> af258efbacdca03954e6b69f366cb6002d6b9de8
 }
