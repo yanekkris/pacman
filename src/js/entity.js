@@ -6,10 +6,10 @@ class Entity {
   }
 
   render() {
-    const stageElm = document.createElement('div');
-    stageElm.className = `entity entity--${this.type}`;
+    const stageElms = document.createElement('div');
+    stageElms.className = `entity entity--${this.type}`;
 
-    return stageElm;
+    return stageElms;
   }
   mount(parent) {
     this.element = this.render();
