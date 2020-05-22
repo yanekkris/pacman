@@ -16,17 +16,31 @@ class Pacman {
 
   move(event) {
     let keyCode = event.code;
+    //let stageSize = document.querySelector('.stage');
+
     if (keyCode === 'ArrowRight') {
-      this.xpos += 85;
+      if (this.xpos < stageWidth - 85) {
+        this.xpos += 85;
+      }
+
       this.element.style.backgroundPositionY = '0px';
     } else if (keyCode === 'ArrowLeft') {
-      this.xpos -= 85;
+      if (this.xpos > 0) {
+        this.xpos -= 85;
+      }
+
       this.element.style.backgroundPositionY = '-85px';
     } else if (keyCode === 'ArrowDown') {
-      this.ypos += 85;
+      if (this.ypos < stageHeight - 85) {
+        this.ypos += 85;
+      }
+
       this.element.style.backgroundPositionY = '-170px';
     } else if (keyCode === 'ArrowUp') {
-      this.ypos -= 85;
+      if (this.ypos > 0) {
+        this.ypos -= 85;
+      }
+
       this.element.style.backgroundPositionY = '-255px';
     }
     this.update();

@@ -1,8 +1,9 @@
 'use strict';
 
 const app = document.querySelector('#app');
-const stage1 = new Stage(1020, 510);
+const stage1 = new Stage(stageWidth, stageHeight);
 stage1.mount(app);
+
 const stage = document.querySelector('.stage');
 const pacman1 = new Pacman(400, 200, 85);
 pacman1.mount(stage);
