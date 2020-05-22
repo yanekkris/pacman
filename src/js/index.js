@@ -5,7 +5,7 @@ const stage1 = new Stage(stageWidth, stageHeight);
 stage1.mount(app);
 
 const stage = document.querySelector('.stage');
-const pacman1 = new Pacman(400, 200, 85);
+const pacman1 = new Pacman(400, 200, 85, stage1);
 pacman1.mount(stage);
 
 const entities = [
@@ -38,7 +38,6 @@ const entities = [
   new Entity(4, 5, 'wall'),
   new Entity(3, 5, 'wall'),
 
-  
   new Entity(4, 1, 'apple'),
   new Entity(3, 4, 'apple'),
   new Entity(1, 6, 'apple'),
@@ -58,7 +57,6 @@ const entities = [
   new Entity(6, 6, 'bomb'),
 
   new Entity(6, 1, 'tomb'),
-
 ];
 
 entities.forEach((entity) => {

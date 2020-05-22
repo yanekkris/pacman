@@ -20,7 +20,13 @@ class Stage {
     stageHeight.style.height = `${this.height}px`;
   };
 
-  removeEntity(this.element) {
-
-  }
+  // collisionDeteciton(x, y) {
+  //   entities.forEach((entity) => {
+  //     if (x === entity.x && y === entity.y) {
+  //       return this.entity;
+  //     } else {
+  //       return null;
+  //     }
+  //   });
+  // }
 }

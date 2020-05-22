@@ -1,8 +1,9 @@
 class Pacman {
-  constructor(xpos, ypos, mouth) {
+  constructor(xpos, ypos, mouth, stage) {
     this.xpos = xpos;
     this.ypos = ypos;
     this.mouth = mouth;
+    this.stage = stage;
   }
   render() {
     const pacElm = document.createElement('div');
@@ -16,32 +17,35 @@ class Pacman {
 
   move(event) {
     let keyCode = event.code;
-    //let stageSize = document.querySelector('.stage');
+    if (stage1.collisionDetection(this.xpos % 85, this.ypos % 85) === null) {
+      this.element.style.left = String(tileL) + 'px';
+      this.element.style.top = String(tileT) + 'px';
 
-    if (keyCode === 'ArrowRight') {
-      if (this.xpos < stageWidth - 85) {
-        this.xpos += 85;
+      if (keyCode === 'ArrowRight') {
+        if (this.xpos < stageWidth - 85) {
+          this.xpos += 85;
+        }
+
+        this.element.style.backgroundPositionY = '0px';
+      } else if (keyCode === 'ArrowLeft') {
+        if (this.xpos > 0) {
+          this.xpos -= 85;
+        }
+
+        this.element.style.backgroundPositionY = '-85px';
+      } else if (keyCode === 'ArrowDown') {
+        if (this.ypos < stageHeight - 85) {
+          this.ypos += 85;
+        }
+
+        this.element.style.backgroundPositionY = '-170px';
+      } else if (keyCode === 'ArrowUp') {
+        if (this.ypos > 0) {
+          this.ypos -= 85;
+        }
+
+        this.element.style.backgroundPositionY = '-255px';
       }
-
-      this.element.style.backgroundPositionY = '0px';
-    } else if (keyCode === 'ArrowLeft') {
-      if (this.xpos > 0) {
-        this.xpos -= 85;
-      }
-
-      this.element.style.backgroundPositionY = '-85px';
-    } else if (keyCode === 'ArrowDown') {
-      if (this.ypos < stageHeight - 85) {
-        this.ypos += 85;
-      }
-
-      this.element.style.backgroundPositionY = '-170px';
-    } else if (keyCode === 'ArrowUp') {
-      if (this.ypos > 0) {
-        this.ypos -= 85;
-      }
-
-      this.element.style.backgroundPositionY = '-255px';
     }
     this.update();
   }
@@ -53,8 +57,6 @@ class Pacman {
   update = () => {
     let tileL = this.xpos - (this.xpos % 85);
     let tileT = this.ypos - (this.ypos % 85);
-    this.element.style.left = String(tileL) + 'px';
-    this.element.style.top = String(tileT) + 'px';
     if (this.element.style.backgroundPositionX === '0px') {
       this.element.style.backgroundPositionX = '85px';
     } else {
