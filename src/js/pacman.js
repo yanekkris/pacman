@@ -34,10 +34,13 @@ class Pacman {
   mount(parent) {
     this.element = this.render();
     parent.appendChild(this.element);
+    this.update();
   }
   update = () => {
-    this.element.style.left = String(this.xpos) + 'px';
-    this.element.style.top = String(this.ypos) + 'px';
+    let tileL = this.xpos - (this.xpos % 85);
+    let tileT = this.ypos - (this.ypos % 85);
+    this.element.style.left = String(tileL) + 'px';
+    this.element.style.top = String(tileT) + 'px';
     if (this.element.style.backgroundPositionX === '0px') {
       this.element.style.backgroundPositionX = '85px';
     } else {
