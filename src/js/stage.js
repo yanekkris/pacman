@@ -20,6 +20,7 @@ class Stage {
     stageHeight.style.height = `${this.height}px`;
   };
 
+<<<<<<< HEAD
   collisionDetection = (x,y) => {
     entities.forEach((element) => {
       console.log(element.x*85,element.y*85);
@@ -29,6 +30,9 @@ class Stage {
       }
       
     });
+=======
+  removeEntity(this.element) {
+>>>>>>> 664a455569f193791d8285504792b91253e31114
 
   }
 }

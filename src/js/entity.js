@@ -16,10 +16,16 @@ class Entity {
     parent.appendChild(this.element);
     this.update();
   }
+
   update = () => {
     this.element.style.left = `${(this.x - 1) * 85}px`;
     this.element.style.top = `${(this.y - 1) * 85}px`;
     
   };
+<<<<<<< HEAD
  
+=======
+  collisionDetection() {}
+  unmount() {}
+>>>>>>> 664a455569f193791d8285504792b91253e31114
 }
