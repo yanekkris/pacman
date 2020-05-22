@@ -17,6 +17,9 @@ class Pacman {
   move(event) {
     let keyCode = event.code;
     //let stageSize = document.querySelector('.stage');
+    stage1.collisionDetection(this.xpos,this.ypos);
+    console.log(this.xpos,this.ypos);
+
 
     if (keyCode === 'ArrowRight') {
       if (this.xpos < stageWidth - 85) {
@@ -45,6 +48,8 @@ class Pacman {
     }
     this.update();
   }
+
+
   mount(parent) {
     this.element = this.render();
     parent.appendChild(this.element);

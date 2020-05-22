@@ -19,4 +19,16 @@ class Stage {
     const stageHeight = this.element.querySelector('.stage');
     stageHeight.style.height = `${this.height}px`;
   };
+
+  collisionDetection = (x,y) => {
+    entities.forEach((element) => {
+      console.log(element.x*85,element.y*85);
+
+      if (element.x*(1-85) === x && element.y*(1-85) === y){
+        window.alert('collision!');
+      }
+      
+    });
+
+  }
 }
